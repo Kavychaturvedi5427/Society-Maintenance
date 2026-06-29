@@ -1,0 +1,38 @@
+package com.kavya.societymaintenance.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.kavya.societymaintenance.dto.Request.LoginRequest;
+import com.kavya.societymaintenance.dto.Request.RegisterRequest;
+import com.kavya.societymaintenance.dto.Response.AuthResponse;
+import com.kavya.societymaintenance.service.Impl.AuthServiceImpl;
+
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api/auth/")
+public class AuthController {
+    
+    private final AuthServiceImpl authServiceImpl;
+
+    @PostMapping("register")
+    public ResponseEntity<AuthResponse> regsiter(@Valid @RequestBody RegisterRequest request) {
+        return ResponseEntity.ok(authServiceImpl.register(request));
+    }
+    
+    @PostMapping("login")
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
+        return ResponseEntity.ok(authServiceImpl.login(request));
+    }
+    
+    
+
+}
