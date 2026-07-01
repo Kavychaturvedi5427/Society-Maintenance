@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kavya.societymaintenance.dto.Request.LoginRequest;
 import com.kavya.societymaintenance.dto.Request.RegisterRequest;
 import com.kavya.societymaintenance.dto.Response.AuthResponse;
-import com.kavya.societymaintenance.service.Impl.AuthServiceImpl;
+import com.kavya.societymaintenance.service.AuthService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -21,16 +21,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/api/auth/")
 public class AuthController {
     
-    private final AuthServiceImpl authServiceImpl;
+    private final AuthService authService;
 
     @PostMapping("register")
     public ResponseEntity<AuthResponse> regsiter(@Valid @RequestBody RegisterRequest request) {
-        return ResponseEntity.ok(authServiceImpl.register(request));
+        return ResponseEntity.ok(authService.register(request));
     }
     
     @PostMapping("login")
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
-        return ResponseEntity.ok(authServiceImpl.login(request));
+        return ResponseEntity.ok(authService.login(request));
     }
     
     
