@@ -1,4 +1,4 @@
-package com.kavya.societymaintenance.entity;
+package com.kavya.societymaintenance.enumerated;
 
 public enum Role {
     ROLE_ADMIN,
