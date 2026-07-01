@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.kavya.societymaintenance.dto.Request.LoginRequest;
 import com.kavya.societymaintenance.dto.Request.RegisterRequest;
 import com.kavya.societymaintenance.dto.Response.AuthResponse;
-import com.kavya.societymaintenance.entity.Role;
+import com.kavya.societymaintenance.enumerated.Role;
 import com.kavya.societymaintenance.entity.User;
 import com.kavya.societymaintenance.repository.UserRepository;
 import com.kavya.societymaintenance.service.AuthService;
